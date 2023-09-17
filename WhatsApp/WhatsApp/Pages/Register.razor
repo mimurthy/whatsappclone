@@ -1,0 +1,51 @@
+﻿@page "/register"
+@inject NavigationManager Navigation
+<PageTitle>Index</PageTitle>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <h1>Register</h1>
+            <form method="POST" action="">
+                <div class="txt_field">
+                    <input type="text" name="name" required>
+                    <span></span>
+                    <label>User Name</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="email" name="email" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="mobile" name="mobile" required>
+                    <span></span>
+                    <label>Mobile</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="location" name="location" required>
+                    <span></span>
+                    <label>Location</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" name="password" required>
+                    <span></span>
+                    <label>Password</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="password" name="cpassword" required>
+                    <span></span>
+                    <label>Confirm Password</label>
+                </div>
+
+                <input name="submit" type="Submit" value="Sign Up">
+                <!--button @onclick="SignUpAsync">submit</!--button-->
+
+            </form>
+        </div>
+    </div>
+</body>

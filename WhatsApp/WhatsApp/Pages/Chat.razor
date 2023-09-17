@@ -1,0 +1,115 @@
+﻿@page "/chat"
+
+<PageTitle>Index</PageTitle>
+
+<body>
+    <div class="background-green"></div>
+
+
+    <div class="main-container">
+        <div class="left-container">
+
+            <!--header -->
+            <div class="header">
+                <div class="user-img">
+                    <img class="dp" src=".\css\Images\Profile.jpeg" alt="">
+                </div>
+                <div class="nav-icons">
+                    <li><i class="fa-solid fa-users"></i></li>
+                    <li>
+                        <i class="fa-solid fa-message">
+                        </i>
+                    </li>
+                    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                </div>
+            </div>
+
+
+            <!--notification -->
+            <div class="notif-box">
+                <i class="fa-solid fa-bell-slash"></i>
+                <div class="notif-text">
+                    <p>Get Notified of New Messages</p>
+                    <a href="#">Turn on Desktop Notifications ›</a>
+                </div>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <!--search-container -->
+            <div class="search-container">
+                <div class="input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search or start new chat   ">
+                </div>
+                <i class="fa-sharp fa-solid fa-bars-filter"></i>
+            </div>
+
+
+            <!--chats -->
+            <div class="chat-list">
+                @foreach (var friend in friends)
+                {
+                    <div class="chat-box" @onclick="() => LoadChat(friend.name, friend.name)">
+                        <div class="img-box">
+                            <img class="img-cover" src=@friend.profile alt="">
+                        </div>
+                        <div class="chat-details">
+                            <div class="text-head">
+                                <h4>@friend.name</h4>
+                                <p class="time unread">20:00</p>
+                            </div>
+                            <div class="text-message">
+                                <p>@friend.message</p>
+                                <b>1</b>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="right-container">
+            <!--header -->
+            <div class="header">
+                <div class="img-text">
+                    <div class="user-img">
+                        <img class="dp" src=".\css\Images\Princess.jpeg" alt="">
+                    </div>
+                    <h4>Princess<br><span>Online</span></h4>
+                </div>
+                <div class="nav-icons">
+                    <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                </div>
+            </div>
+
+            <div class="chat-container">
+                @foreach (var chat in chatHistory.messages)
+                {
+                    if (chat.from == "Mithun")
+                    {
+                        <div class="message-box my-message">
+                            <p>@chat.message <br><span>@chat.timeOfMessage</span></p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="message-box friend-message">
+                            <p>@chat.message <br><span>@chat.timeOfMessage</span></p>
+                        </div>
+                    }
+
+                }
+            </div>
+
+            <!--input-bottom -->
+            <div class="chatbox-input">
+                <i class="fa-regular fa-face-grin"></i>
+                <i class="fa-sharp fa-solid fa-paperclip"></i>
+                <input type="text" placeholder="Type a message">
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+        </div>
+
+    </div>
+</body>
